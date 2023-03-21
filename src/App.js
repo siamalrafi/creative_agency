@@ -1,30 +1,31 @@
-import './App.css';
-import { createBrowserRouter } from 'react-router-dom';
-import { Button, Stack } from '@mui/material';
+import { CssBaseline } from '@mui/material';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './Components/Pages/Home/Home';
+import Layout from './Components/Layout/Layout';
 
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <div>Hello world!</div>,
+    element: <Layout />,
+    path: '/',
+    children: [
+      {
+        element: <Home />,
+        path: '/',
+      },
+    ],
   },
 ]);
 
-
-function App() {
+const App = () => {
 
   return (
-    <div className="App">
-      <h1>Hello </h1>
-
-      <Stack spacing={2} direction="row">
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
-
+    <div>
+      <RouterProvider router={router} />
+      <CssBaseline />
     </div>
   );
-}
+};
 
 export default App;
