@@ -9,9 +9,9 @@ const Layout = () => {
       <Box>
          <Container>
             <Header />
-            <Outlet />
+            {/* <Outlet /> */}
          </Container>
-         <Footer />
+         {/* <Footer /> */}
       </Box>
    );
 };
