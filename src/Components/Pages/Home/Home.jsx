@@ -1,10 +1,11 @@
 import React from 'react';
+import Branding from '../Branding/Branding';
 
 const Home = () => {
     return (
         <div>
-            <h1>HomeHomeHome</h1>
-    
+            <Branding />
+
         </div>
     );
 };
