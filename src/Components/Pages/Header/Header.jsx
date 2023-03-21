@@ -70,18 +70,13 @@ export default function Header(props) {
                                 backgroundColor: 'primary.main',
                                 '&:hover': {
                                     backgroundColor: 'primary.main',
+
                                 },
                             }}
                         >
                             <MenuIcon />
                         </IconButton>
-                        {/* <Typography
-                  variant='h6'
-                  component='div'
-                  sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-               >
-                  MUI
-               </Typography> */}
+
                         <Box
                             sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
                         >

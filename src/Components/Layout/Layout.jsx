@@ -11,7 +11,7 @@ const Layout = () => {
             <Header />
             <Outlet />
          </Container>
-         <Footer />
+         {/* <Footer /> */}
       </Box>
    );
 };

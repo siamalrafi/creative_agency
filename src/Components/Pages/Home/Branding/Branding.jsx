@@ -31,7 +31,7 @@ const Branding = () => {
             </Typography>
             <Button
                sx={{
-                  width: '200px',
+                  width: '150px',
                }}
             >
                Hire Us
