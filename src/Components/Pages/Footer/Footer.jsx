@@ -12,7 +12,7 @@ export const Footer = () => {
                     height: "auto",
                     paddingTop: "1rem",
                     paddingBottom: "1rem",
-                    bgcolor:"#7AB259"
+                    bgcolor: "#7AB259"
                 }}
             >
                 <Container maxWidth="lg">
@@ -32,7 +32,7 @@ export const Footer = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <Typography color="textSecondary" variant="subtitle1">
-                                {`${new Date().getFullYear()} | React | Material UI | React Router`}
+                            Copyright © 2023 Creative Agency
                             </Typography>
                         </Grid>
                     </Grid>
