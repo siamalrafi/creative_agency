@@ -6,6 +6,8 @@ import Layout from "./Components/Layout/Layout";
 import { theme } from "./Components/theme/theme";
 import Register from "./Components/Pages/SignUp/Register";
 import SignIn from "./Components/Pages/SignIn/SignIn";
+import Contact from './Components/Pages/Contact/Contact';
+import Services from './Components/Pages/Home/Services/Services';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/Login",
         element: <SignIn />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      }.element,
+      {
+        path: "Services",
+        element: <Services />,
       }
     ],
   },
