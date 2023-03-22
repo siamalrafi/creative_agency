@@ -26,7 +26,10 @@ const RightTab = styled("h2")(({ theme }) => ({
     marginTop: theme.spacing(8),
     display: "inline-block",
     fontSize: "40px"
-}))
+}));
+
+
+
 const OurWorks = () => {
     const [value, setValue] = React.useState(0);
 
@@ -34,9 +37,12 @@ const OurWorks = () => {
         console.log(newValue);
         setValue(newValue);
     };
+
+
     return (
         <Box sx={{ my: 5, mb: 10 }}>
             {/* heading section */}
+
             <Box
                 sx={{
                     display: 'flex',
@@ -45,13 +51,6 @@ const OurWorks = () => {
                     mb: 5
                 }}
             >
-                {/* <SectionTitle
-               title='Here are some of'
-               colored='our works'
-               sx={{
-                  textAlign: 'left',
-               }}
-            /> */}
                 <Box
                     sx={{
                         display: 'flex',
@@ -66,7 +65,7 @@ const OurWorks = () => {
 
 
 
-                    <RightTab>
+                    <RightTab textAlign="right">
 
                         <Tabs
                             value={value}
