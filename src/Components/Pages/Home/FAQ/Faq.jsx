@@ -29,7 +29,7 @@ const Faq = () => {
             </Text>
 
 
-            <Question/>
+            <Question />
         </div>
     );
 };

@@ -90,20 +90,24 @@ export default function SimpleAccordion() {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-
-
-            {/* djffffffffffffffffff */}
-            <Accordion  >
+            <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel3a-content"
-                    id="panel3a-header"
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
                 >
                     <TextQuestion>
-                        How do I pay for the Essentials or Premium plans
+                        How can I get your plan?
                     </TextQuestion>
                 </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        Yes, we are happy to provide references and case studies upon request. Our portfolio showcases some of our previous work, and we are proud to have worked with a diverse range of clients across multiple industries.
+                    </Typography>
+                </AccordionDetails>
             </Accordion>
+
+
         </div>
     );
 }

@@ -16,7 +16,7 @@ import Container from '@mui/material/Container';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = ['Home', 'About', "Services", 'Contact'];
 
 export default function Header(props) {
     const { window } = props;
@@ -112,13 +112,20 @@ export default function Header(props) {
                             >
                                 Contact
                             </Button>
-                            <Button href="/Courses"
+                            <Button href="/Services"
                                 sx={{ color: 'primary.main' }}
                                 variant='text'
                             >
-                                Courses
+                                Services
                             </Button>
 
+                            <Button href="Register"
+                                sx={{
+                                    bgcolor: 'primary.green',
+                                }}
+                            >
+                                Register
+                            </Button>
                             <Button href="Login"
                                 sx={{
                                     bgcolor: 'primary.green',
