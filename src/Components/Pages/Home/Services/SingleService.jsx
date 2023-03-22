@@ -34,12 +34,12 @@ export default function SingleService({ image }) {
     };
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ mr: "2px", maxWidth: 345, alignItems: "center" }}>
             <CardHeader
                 sx={{ textAlign: "center" }}
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        R
+                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="avatar" />
                     </Avatar>
                 }
                 action={
