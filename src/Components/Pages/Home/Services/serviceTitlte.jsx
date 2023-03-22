@@ -1,26 +1,32 @@
-
 import React from 'react';
-import { Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const serviceTitlte = ({ title, colored, sx }) => {
+
+const ServieTitle = () => {
+
+    const Text = styled('div')(({ theme }) => ({
+        color: theme.palette.text.primary,
+        fontSize: '40px',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '10px'
+    }));
+
+    const BoldText = styled("h1")(({ theme }) => ({
+        fontSize: "50px",
+        display: "inline-block",
+        color: theme.palette.primary.green,
+    }))
+
+
+
     return (
         <div>
-            <div>
-                <Typography
-                    sx={{
-                        fontSize: '34px',
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        ...sx,
-                    }}
-                >
-                    {title}{' '}
-                    {colored && <span style={{ color: '#7AB259' }}>{colored}</span>}
-                </Typography>
-            </div>
-
+            <Text textAlign={"center"} mt={2}>
+                Provide Awesome <BoldText>Services</BoldText>
+            </Text>
         </div>
     );
 };
 
-export default serviceTitlte;
+export default ServieTitle;
