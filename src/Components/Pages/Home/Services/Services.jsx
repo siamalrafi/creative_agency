@@ -2,6 +2,9 @@ import { Grid } from '@mui/material';
 import React from 'react';
 import ServieTitle from "./serviceTitlte";
 import Service from './SingleService'; 
+import OurWorks from "../OurWorks/OurWorks";
+
+
 
 const Services = () => { 
     const serviceImages = [
@@ -26,6 +29,8 @@ const Services = () => {
                     </Grid>
                 ))}
             </Grid>
+
+<OurWorks/>
 
         </div>
     );
