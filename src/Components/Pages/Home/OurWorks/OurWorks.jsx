@@ -9,15 +9,7 @@ import { Grid } from '@mui/material';
 import { cardData } from './cardData';
 
 
-const Worktitle = styled('h1')(({ theme }) => ({
-    textAlign: 'left',
-    color: theme.palette.primary.green,
-    marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(8),
-    display: "inline-block",
-    fontSize: "30px"
 
-}));
 
 const RightTab = styled("h2")(({ theme }) => ({
     textAlign: 'right',
@@ -28,6 +20,19 @@ const RightTab = styled("h2")(({ theme }) => ({
     fontSize: "40px"
 }));
 
+const Text = styled('div')(({ theme }) => ({
+    color: theme.palette.text.primary,
+    fontSize: '40px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: '10px'
+}));
+
+const BoldText = styled("h1")(({ theme }) => ({
+    fontSize: "50px",
+    display: "inline-block",
+    color: theme.palette.primary.green,
+}))
 
 
 const OurWorks = () => {
@@ -42,6 +47,9 @@ const OurWorks = () => {
     return (
         <Box sx={{ my: 5, mb: 10 }}>
             {/* heading section */}
+            <Text textAlign={"center"} mt={2}>
+                Provide Awesome <BoldText>Services</BoldText>
+            </Text>
 
             <Box
                 sx={{
@@ -59,9 +67,6 @@ const OurWorks = () => {
                         gap: 2,
                     }}
                 >
-                    <Worktitle>
-                        Here are our Some Works
-                    </Worktitle>
 
 
 
