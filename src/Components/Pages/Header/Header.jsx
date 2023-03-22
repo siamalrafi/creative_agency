@@ -13,6 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -28,14 +29,23 @@ export default function Header(props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant='h6' sx={{ my: 2 }}>
-                MUI
+                <Button variant="outlined">
+                    <CancelIcon sx={{ height: '30px' }} variant="contained" />
+                </Button>
             </Typography>
             <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center' }}>
-                            <ListItemText primary={item} />
+                            <ListItemText   >
+                                <Button href={item}
+                                    sx={{ color: 'primary.main' }}
+                                    variant='text'
+                                >
+                                    {item}
+                                </Button>
+                            </ListItemText>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -89,16 +99,27 @@ export default function Header(props) {
                             />
                         </Box>
                         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-                            {navItems.map((item) => (
-                                <Button
-                                    key={item}
-                                    sx={{ color: 'primary.main' }}
-                                    variant='text'
-                                >
-                                    {item}
-                                </Button>
-                            ))}
-                            <Button
+
+                            <Button href="/"
+                                sx={{ color: 'primary.main' }}
+                                variant='text'
+                            >
+                                Home
+                            </Button>
+                            <Button href="/Contact"
+                                sx={{ color: 'primary.main' }}
+                                variant='text'
+                            >
+                                Contact
+                            </Button>
+                            <Button href="/Courses"
+                                sx={{ color: 'primary.main' }}
+                                variant='text'
+                            >
+                                Courses
+                            </Button>
+
+                            <Button href="Login"
                                 sx={{
                                     bgcolor: 'primary.green',
                                 }}
