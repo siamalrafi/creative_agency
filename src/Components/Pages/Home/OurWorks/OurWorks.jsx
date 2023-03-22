@@ -1,8 +1,9 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, textAlign } from '@mui/system';
-import { Typography } from '@mui/material';
-
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import LabTabs from './LabTabs';
+import { Box } from '@mui/system';
 
 
 const Worktitle = styled('h1')(({ theme }) => ({
@@ -26,9 +27,16 @@ const RightTab = styled("h2")(({ theme }) => ({
 
 
 const OurWorks = () => {
+    const [value, setValue] = React.useState('1');
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+
     const Item = styled("div")(({ theme }) => ({
         textAlign: 'center',
-    }))
+    }));
+
 
     return (
         <div>
@@ -50,7 +58,8 @@ const OurWorks = () => {
                 <Item>
 
                     <RightTab justifyContent="">
-                        Hellow
+                        <LabTabs />
+
                     </RightTab>
                 </Item>
             </Box>
