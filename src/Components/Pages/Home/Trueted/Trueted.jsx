@@ -1,33 +1,38 @@
-import * as React from 'react';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import React from 'react';
+import { Box, styled } from '@mui/material';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+const brands = [
+   'https://i.ibb.co/27wHw8Y/image-5.png',
+   'https://i.ibb.co/vVSVd76/image-6.png',
+   'https://i.ibb.co/Dwj3KYc/image-7.png',
+   'https://i.ibb.co/99gcp3b/image-8.png',
+   'https://i.ibb.co/Rhk2VSh/image-9.png',
+];
+
+const BrandsWrapper = styled(Box)(({ theme }) => ({
+   marginBottom: '4rem',
+   display: 'flex',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+   '& > img': {
+      height: '60px',
+   },
+   [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      '& > img': {
+         marginBottom: '1rem',
+      },
+   },
 }));
 
-export default function Trueted() {
+const Brands = () => {
+   return (
+      <BrandsWrapper>
+         {brands.map((brand, i) => (
+            <img key={i} src={brand} alt='brands' />
+         ))}
+      </BrandsWrapper>
+   );
+};
 
-    const truetedCompany = [1, 2, 3, 3, 4, 5];
-
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {truetedCompany.map((item, index) => (
-                    <Grid item xs={2} sm={4} md={4} key={index}>
-
-
-
-
-                    </Grid>
-                ))}
-            </Grid>
-        </Box>
-    );
-}
+export default Brands;
