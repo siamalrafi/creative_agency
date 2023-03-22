@@ -25,7 +25,6 @@ const Text = styled('div')(({ theme }) => ({
     fontSize: '40px',
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: '10px'
 }));
 
 const BoldText = styled("h1")(({ theme }) => ({
@@ -45,10 +44,10 @@ const OurWorks = () => {
 
 
     return (
-        <Box sx={{ my: 5, mb: 10 }}>
+        <Box sx={{ my: 2, }}>
             {/* heading section */}
-            <Text textAlign={"center"} mt={2}>
-                Provide Awesome <BoldText>Services</BoldText>
+            <Text textAlign={"center"}  >
+                Here are Some of <BoldText>Our Works</BoldText>
             </Text>
 
             <Box
@@ -135,13 +134,13 @@ const OurWorks = () => {
             {/*  card section */}
 
             <Grid container spacing={3} justifyContent='center'>
-                {cardData[value].map((image) => (
-                    <Grid item>
+                {cardData[value].map((image, i) => (
+                    <Grid key={i} item >
                         <CreativeCard image={image} />
                     </Grid>
                 ))}
             </Grid>
-        </Box>
+        </Box >
     );
 };
 
