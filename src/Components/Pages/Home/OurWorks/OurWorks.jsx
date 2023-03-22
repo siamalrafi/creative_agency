@@ -1,9 +1,12 @@
 import React from 'react';
+import { Box, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
-import LabTabs from './LabTabs';
-import { Box } from '@mui/system';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CreativeCard from "../../../CreativeCard/CreativeCard";
+import { Grid } from '@mui/material';
+import { cardData } from './cardData';
 
 
 const Worktitle = styled('h1')(({ theme }) => ({
@@ -12,7 +15,7 @@ const Worktitle = styled('h1')(({ theme }) => ({
     marginBottom: theme.spacing(4),
     marginTop: theme.spacing(8),
     display: "inline-block",
-    fontSize: "50px"
+    fontSize: "30px"
 
 }));
 
@@ -24,48 +27,117 @@ const RightTab = styled("h2")(({ theme }) => ({
     display: "inline-block",
     fontSize: "40px"
 }))
-
-
 const OurWorks = () => {
-    const [value, setValue] = React.useState('1');
+    const [value, setValue] = React.useState(0);
+
     const handleChange = (event, newValue) => {
+        console.log(newValue);
         setValue(newValue);
     };
-
-
-    const Item = styled("div")(({ theme }) => ({
-        textAlign: 'center',
-    }));
-
-
     return (
-        <div>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-            }}
+        <Box sx={{ my: 5, mb: 10 }}>
+            {/* heading section */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    mb: 5
+                }}
             >
-                <Item>
+                {/* <SectionTitle
+               title='Here are some of'
+               colored='our works'
+               sx={{
+                  textAlign: 'left',
+               }}
+            /> */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: 2,
+                    }}
+                >
                     <Worktitle>
                         Here are our Some Works
                     </Worktitle>
 
-                </Item>
-                <Item>
 
-                    <RightTab justifyContent="">
-                        <LabTabs />
+
+                    <RightTab>
+
+                        <Tabs
+                            value={value}
+                            onChange={handleChange}
+                            centered
+                            sx={{
+                                '& .MuiTabs-indicator': {
+                                    display: 'none',
+                                },
+                                '& .Mui-selected': {
+                                    color: 'primary.green',
+                                    fontWeight: 'bold',
+                                },
+                                '& .MuiButtonBase-root': {
+                                    textTransform: 'capitalize',
+                                },
+                            }}
+                        >
+                            <Tab label='All' />
+                            <Tab label='Web Design' />
+                            <Tab label='Mobile App' />
+                        </Tabs>
+                        <Box>
+                            <IconButton
+                                sx={{
+                                    border: theme => `1px solid ${value === 0 ? '#959EAD' : theme.palette.primary.main}`,
+                                    mr: 2,
+                                    color: 'primary.main'
+                                }}
+                                onClick={() => setValue(value - 1)}
+                                disabled={value === 0}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+                            <IconButton
+                                sx={{
+                                    border: theme => `1px solid ${value === 2 ? '#959EAD' : theme.palette.primary.main}`,
+                                    color: 'primary.main'
+                                }}
+                                onClick={() => setValue(value + 1)}
+                                disabled={value === 2}
+                            >
+                                <ArrowBackIcon
+                                    sx={{
+                                        transform: 'rotate(180deg)',
+                                    }}
+                                />
+                            </IconButton>
+                        </Box>
+
+
+
 
                     </RightTab>
-                </Item>
+
+
+
+
+                </Box>
             </Box>
 
+            {/*  card section */}
 
-        </div >
+            <Grid container spacing={3} justifyContent='center'>
+                {cardData[value].map((image) => (
+                    <Grid item>
+                        <CreativeCard image={image} />
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
     );
 };
 
