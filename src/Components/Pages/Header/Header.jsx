@@ -16,7 +16,7 @@ import Container from '@mui/material/Container';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', "Services", 'Contact', "Login", "Register"];
+const navItems = ['Home', "Services", 'Contact', "Login", "Register"];
 
 export default function Header(props) {
     const { window } = props;

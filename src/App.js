@@ -8,6 +8,9 @@ import Register from "./Components/Pages/SignUp/Register";
 import SignIn from "./Components/Pages/SignIn/SignIn";
 import Contact from './Components/Pages/Contact/Contact';
 import Services from './Components/Pages/Home/Services/Services';
+import About from "./Components/Pages/About/About";
+
+
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,18 @@ const router = createBrowserRouter([
         path: '/',
       },
       {
+        path: "/About",
+        element: <About />,
+      },
+      {
+        path: "/Contact",
+        element: <Contact />,
+      },
+      {
+        path: "/Services",
+        element: <Services />,
+      },
+      {
         path: "/Register",
         element: <Register />,
       },
@@ -26,14 +41,6 @@ const router = createBrowserRouter([
         path: "/Login",
         element: <SignIn />,
       },
-      {
-        path: "/Contact",
-        element: <Contact />,
-      },
-      {
-        path: "Services",
-        element: <Services />,
-      }
     ],
   },
 ]);
