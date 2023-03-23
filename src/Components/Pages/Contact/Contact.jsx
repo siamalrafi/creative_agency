@@ -1,9 +1,12 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Button, Grid, Typography } from '@mui/material';
+import { Button, Checkbox, Container, FormControlLabel, Grid, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import { computeHeadingLevel } from '@testing-library/react';
+
+
 
 const Text = styled('div')(({ theme }) => ({
     color: theme.palette.text.primary,
@@ -29,11 +32,18 @@ const Item = styled(Paper)(({ theme }) => ({
 const Contact = () => {
 
     const handleSubmit = (event) => {
-        event.preventdefault()
-        const form = event.target;
-        const name = form.name.value;
-        console.log(name);
-    }
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const name = data.get('name');
+        const email = data.get('email');
+        const subject = data.get('subject');
+        const massage = data.get('massage');
+
+        console.log(name, email, subject, massage);
+    };
+
+
+
     return (
         <div>
             <Text textAlign={"center"}  >
@@ -64,7 +74,7 @@ const Contact = () => {
                             <TextField name='email' label="Email" type="email" variant="outlined" />
                         </Item>
                     </Grid>
-                    <Grid item   >
+                    <Grid item>
                         <Item>
                             <TextField name='subject' label="Subject" type="text" sx={{
                                 height: "50px", width: "300px", margin: "5px"
@@ -81,7 +91,8 @@ const Contact = () => {
                     </Button>
                 </Grid>
             </Box>
-        </div>
+
+        </div >
     );
 };
 
