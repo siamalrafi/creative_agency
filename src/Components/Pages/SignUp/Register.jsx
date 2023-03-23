@@ -12,19 +12,30 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { computeHeadingLevel } from '@testing-library/react';
 
 
 const theme = createTheme();
 
 export default function SignUp() {
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    const firstName = data.get('firstName');
+    const lastName = data.get('lastName');
+    const name = `${firstName}${lastName}`
+    const email = data.get('email');
+    const password = data.get('password');
+
+    console.log(name, email, password);
+
   };
+
+
+
 
   return (
     <ThemeProvider theme={theme}>
