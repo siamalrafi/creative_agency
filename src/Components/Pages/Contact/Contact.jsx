@@ -28,10 +28,11 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Contact = () => {
 
-    const handleSubmit = () => {
-
-
-        console.log("submit");
+    const handleSubmit = (event) => {
+        event.preventdefault()
+        const form = event.target;
+        const name = form.name.value;
+        console.log(name);
     }
     return (
         <div>
@@ -46,36 +47,36 @@ const Contact = () => {
                 We Are Looking Forward To Start A Project With You!
             </Typography>
 
-            <Box>
+            <Box component="form" noValidate onSubmit={handleSubmit}   >
                 <Grid direction="column"
                     style={{
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center"
-                    }} container columns={16}>
-                    <Grid item xs={8}>
+                    }} container columns={14}>
+                    <Grid item  >
                         <Item>
-                            <TextField name='name' id="outlined-basic" label="Name" type="text" variant="outlined" />
+                            <TextField name='name' label="Name" type="text" variant="outlined" />
                         </Item>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item  >
                         <Item>
-                            <TextField name='email' id="outlined-basic" label="Email" type="email" variant="outlined" />
+                            <TextField name='email' label="Email" type="email" variant="outlined" />
                         </Item>
                     </Grid>
-                    <Grid item xs={12} >
+                    <Grid item   >
                         <Item>
                             <TextField name='subject' label="Subject" type="text" sx={{
                                 height: "50px", width: "300px", margin: "5px"
-                            }} id="outlined-basic" variant="outlined" />
+                            }} variant="outlined" />
                         </Item>
                         <Item>
                             <TextField name='massage' label="Massage" type="text" sx={{
                                 height: "50px", width: "300px", margin: "5px"
-                            }} id="outlined-basic" variant="outlined" />
+                            }} variant="outlined" />
                         </Item>
                     </Grid>
-                    <Button variant="contained" color='success' sx={{ margin: "40px" }}>
+                    <Button type='submit' variant="contained" color='success' sx={{ margin: "40px" }}>
                         Disable elevation
                     </Button>
                 </Grid>
