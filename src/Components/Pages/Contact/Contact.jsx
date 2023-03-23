@@ -39,7 +39,14 @@ const Contact = () => {
         const subject = data.get('subject');
         const massage = data.get('massage');
 
-        console.log(name, email, subject, massage);
+        const userMassage = {
+            name: name,
+            email: email,
+            subject: subject,
+            massage: massage,
+        };
+
+        console.log(userMassage);
     };
 
 
@@ -87,7 +94,7 @@ const Contact = () => {
                         </Item>
                     </Grid>
                     <Button type='submit' variant="contained" color='success' sx={{ margin: "40px" }}>
-                        Disable elevation
+                        Send Massage
                     </Button>
                 </Grid>
             </Box>
