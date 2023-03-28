@@ -7,14 +7,5 @@ Description: This is the creativeagency website for an organization. It includes
 ## Technologies: React, React router,Material UI, Google Oauth, some npm packages
 
 
-
-
 Live Link: https://creativeagencyio.netlify.app/
-
-
-
-
-
-
-
 
