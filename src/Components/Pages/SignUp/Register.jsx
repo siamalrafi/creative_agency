@@ -40,11 +40,6 @@ export default function SignUp() {
       .then(result => {
         const user = result.user;
 
-        const currentUser = {
-          email: data?.email,
-        };
-        console.log(user);
-
         updateUser(`${data.get('firstName')} ${data.get('lastName')}`, data.userType)
           .then(() => {
             const userInformation = {
@@ -52,13 +47,14 @@ export default function SignUp() {
               email: user?.email,
               userType: data?.userType
             };
+            toast.success(`${user.displayName}, Successfully Registered.}`)
           })
           .catch(err => console.log(err));
       })
       .catch(error => {
         console.log(error)
-        setSignUPError(error.message)
-        toast.errors('something went wrong, please try again')
+        setSignUPError(error.message);
+        toast.error('something went wrong, please try again')
       });
 
   };
