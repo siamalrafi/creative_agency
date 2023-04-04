@@ -15,6 +15,8 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const drawerWidth = 240;
 const navItems = ["Services", 'Contact', "Login", "Register"];
@@ -22,6 +24,10 @@ const navItems = ["Services", 'Contact', "Login", "Register"];
 export default function Header(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    console.log(user?.email);
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -116,20 +122,56 @@ export default function Header(props) {
                                 Services
                             </Button>
 
-                            <Button href="Register"
-                                sx={{
-                                    bgcolor: 'primary.green',
-                                }}
-                            >
-                                Register
-                            </Button>
-                            <Button href="Login"
-                                sx={{
-                                    bgcolor: 'primary.green',
-                                }}
-                            >
-                                Login
-                            </Button>
+
+                            {
+                                user?.email ?
+                                    <>
+                                        <Button href="Register"
+                                            sx={{
+                                                bgcolor: 'primary.green',
+                                            }}
+                                        >
+                                            Dashboard
+                                        </Button>
+                                        <Button
+                                            onClick={() => logOut()}
+                                            sx={{
+                                                bgcolor: 'primary.green',
+                                            }}
+                                        >
+                                            LogOut
+                                        </Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Button href="Register"
+                                            sx={{
+                                                bgcolor: 'primary.green',
+                                            }}
+                                        >
+                                            Register
+                                        </Button>
+
+
+                                        <Button href="Login"
+                                            sx={{
+                                                bgcolor: 'primary.green',
+                                            }}
+                                        >
+                                            Login
+                                        </Button>
+                                    </>
+                            }
+
+
+
+
+
+
+
+
+
+
                         </Box>
                     </Toolbar>
                 </Container>
@@ -157,6 +199,6 @@ export default function Header(props) {
             <Box component='main'>
                 <Toolbar />
             </Box>
-        </Box>
+        </Box >
     );
 }
