@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,13 +12,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { computeHeadingLevel } from '@testing-library/react';
+import { AuthContext } from '../../../Contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 
 const theme = createTheme();
 
 export default function SignUp() {
-
+  const { createUser, updateUser, googelSign } = useContext(AuthContext);
+  const [signUpError, setSignUPError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +35,31 @@ export default function SignUp() {
     const password = data.get('password');
 
     console.log(name, email, password);
+
+    createUser(email, password)
+      .then(result => {
+        const user = result.user;
+
+        const currentUser = {
+          email: data?.email,
+        };
+        console.log(user);
+
+        updateUser(`${data.get('firstName')} ${data.get('lastName')}`, data.userType)
+          .then(() => {
+            const userInformation = {
+              name: user?.displayName,
+              email: user?.email,
+              userType: data?.userType
+            };
+          })
+          .catch(err => console.log(err));
+      })
+      .catch(error => {
+        console.log(error)
+        setSignUPError(error.message)
+        toast.errors('something went wrong, please try again')
+      });
 
   };
 

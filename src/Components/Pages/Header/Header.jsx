@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = ["Services", 'Contact', "Login", "Register"];
@@ -90,13 +91,15 @@ export default function Header(props) {
                         <Box
                             sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
                         >
-                            <img
-                                src='https://i.ibb.co/JsvBDwD/logo.png'
-                                alt=''
-                                style={{
-                                    width: '150px',
-                                }}
-                            />
+                            <Link to="/">
+                                <img
+                                    src='https://i.ibb.co/JsvBDwD/logo.png'
+                                    alt=''
+                                    style={{
+                                        width: '150px',
+                                    }}
+                                />
+                            </Link>
                         </Box>
                         <Box sx={{ display: { xs: 'none', md: 'block' } }}>
 
