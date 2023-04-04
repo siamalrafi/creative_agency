@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,13 +11,24 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 
 const theme = createTheme();
 
 export default function SignIn() {
+  const { signIn, googleSign } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  const from = location.state?.from?.pathname || "/";
+
+
+  // sign in with email and password ----------
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,10 +37,70 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    signIn(data.get('email'), data.get('password'))
+      .then(result => {
+        const user = result.user;
+        console.log(result);
+        const currentUser = {
+          email: data.email,
+        };
+        console.log(currentUser);
+
+        // fetch('https://my-mirraw-server.vercel.app/jwt', {
+        //   method: 'POST',
+        //   headers: {
+        //     'content-type': 'application/json'
+        //   },
+        //   body: JSON.stringify(currentUser)
+        // })
+        //   .then(res => res.json())
+        //   .then(data => {
+        //     console.log(data);
+        //     toast.success(' login successfully')
+        //     navigate(from, { replace: true });
+        //     localStorage.setItem('accessToken', data.token);
+
+        //   })
+      })
+      .catch(error => {
+        console.log(error.message)
+        toast.error('something went wrong, try again.')
+        setLoginError(error.message);
+      });
+
+
   };
 
 
-  
+
+  // google sign in--------
+  const handleGoogleSign = () => {
+    googleSign()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        console.log(result);
+
+        toast.success(`${user.displayName} registered successfully.`)
+        const currentUser = {
+          email: user?.email,
+        };
+        console.log(currentUser);
+
+        const userInformation = {
+          name: user?.displayName,
+          email: user?.email,
+          userType: 'Buyer'
+        };
+      })
+      .then(error => {
+        console.log(error);
+      })
+  };
+
+
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -79,6 +150,14 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+            </Button>
+            <Button
+              onClick={() => handleGoogleSign()}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Google SignUp
             </Button>
             <Grid container>
               <Grid item xs>
