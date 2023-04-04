@@ -20,7 +20,7 @@ import { toast } from 'react-hot-toast';
 const theme = createTheme();
 
 export default function SignUp() {
-  const { createUser, updateUser, googelSign } = useContext(AuthContext);
+  const { createUser, updateUser, googleSign } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState('');
   const navigate = useNavigate();
 
@@ -56,7 +56,30 @@ export default function SignUp() {
         setSignUPError(error.message);
         toast.error('something went wrong, please try again')
       });
+  };
 
+  const handleGoogleSign = () => {
+    googleSign()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        console.log(result);
+
+        toast.success(`${user.displayName} registered successfully.`)
+        const currentUser = {
+          email: user?.email,
+        };
+        console.log(currentUser);
+
+        const userInformation = {
+          name: user?.displayName,
+          email: user?.email,
+          userType: 'Buyer'
+        };
+      })
+      .then(error => {
+        console.log(error);
+      })
   };
 
 
@@ -139,6 +162,17 @@ export default function SignUp() {
             >
               Sign Up
             </Button>
+
+            <Button
+              onClick={() => handleGoogleSign()}
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Google SignUp
+            </Button>
+
+
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">

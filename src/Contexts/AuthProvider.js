@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
         });
     };
 
-    const googelSign = () => {
+    const googleSign = () => {
         return signInWithPopup(auth, googleProvider)
 
     };
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         createUser,
         signIn,
-        googelSign,
+        googleSign,
         updateUser,
         logOut,
         setDisplayID,
