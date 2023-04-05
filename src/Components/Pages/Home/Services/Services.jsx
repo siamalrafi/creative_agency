@@ -56,7 +56,10 @@ const Services = () => {
             "categories": "ContentCreation",
             "url": "https://i.ibb.co/DQPkgYq/Content-Creation.jpg"
         }
-    ]
+    ];
+
+    // you should fetch data from server 
+    // http://localhost:5000/api/v1/services
 
     return (
         <div>
@@ -71,7 +74,6 @@ const Services = () => {
                     </Grid>
                 ))}
             </Grid>
-
             <OurWorks />
 
         </div>

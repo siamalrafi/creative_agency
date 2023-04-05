@@ -9,8 +9,7 @@ import SignIn from "./Components/Pages/SignIn/SignIn";
 import Contact from './Components/Pages/Contact/Contact';
 import Services from './Components/Pages/Home/Services/Services';
 import About from "./Components/Pages/About/About";
-
-
+import ServiceDetails from "./Components/Pages/Home/Services/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +31,15 @@ const router = createBrowserRouter([
       {
         path: "/Services",
         element: <Services />,
+      },
+      {
+        path: "/:Category",
+        element: <ServiceDetails />,
+        loader: ({ params }) => {
+          return fetch(
+            `http://localhost:5000/api/v1/services/${params.Category}`
+          );
+        },
       },
       {
         path: "/Register",
