@@ -34,12 +34,16 @@ export default function ServiceDetails() {
     const [expanded, setExpanded] = React.useState(false);
     const [namee, setNamee] = useState('');
     const [email, setEmail] = useState('');
+    const [serviceName, SetServiceName] = useState('');
+    const [pricee, SetPricee] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Name: ${name}, Email: ${email}`);
+        console.log(`Name: ${name},${price}, Email: ${email}, ${serviceName}`);
         setNamee('');
         setEmail('');
+        SetServiceName('');
+        SetPricee('');
     };
 
 
@@ -50,8 +54,6 @@ export default function ServiceDetails() {
     const data = datas.data[0];
 
     const { name, description, price, status, url } = data;
-    console.log(data);
-    console.log(name);
 
 
     return (
@@ -60,7 +62,7 @@ export default function ServiceDetails() {
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: red[500], }} aria-label="recipe">
-                            <img src="https://i.ibb.co/jrLSyhJ/pic.jpg" alt="avatar" srcset="" />
+                            <img src="https://i.ibb.co/jrLSyhJ/pic.jpg" alt="avatar" srcSet="" />
                         </Avatar>
                     }
                     action={
@@ -134,9 +136,18 @@ export default function ServiceDetails() {
                     fullWidth
                 />
                 <TextField
-                    label="Password"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                    label="Service Name"
+                    value={serviceName}
+                    onChange={(event) => SetServiceName(event.target.value)}
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
+                <TextField
+                    label="Price"
+                    value={pricee}
+                    value={price}
+                    onChange={(event) => SetServiceName(event.target.value)}
                     variant="outlined"
                     margin="normal"
                     fullWidth

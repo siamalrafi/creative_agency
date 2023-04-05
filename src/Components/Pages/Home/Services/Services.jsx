@@ -82,9 +82,6 @@ const Services = () => {
         <div>
             <ServieTitle />
 
-            {/* ----------- SingleService ----------- */}
-            {/* <SingleService /> */}
-
             <Grid container spacing={2}>
                 {OurServices.data?.map((Services, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
