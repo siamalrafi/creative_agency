@@ -15,6 +15,9 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { TextField, Button } from '@material-ui/core';
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -29,6 +32,16 @@ const ExpandMore = styled((props) => {
 
 export default function ServiceDetails() {
     const [expanded, setExpanded] = React.useState(false);
+    const [namee, setNamee] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(`Name: ${name}, Email: ${email}`);
+        setNamee('');
+        setEmail('');
+    };
+
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -42,64 +55,96 @@ export default function ServiceDetails() {
 
 
     return (
-        <Card sx={{ textAlign: "center" }}>
-            <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: red[500], }} aria-label="recipe">
-                        <img src="https://i.ibb.co/jrLSyhJ/pic.jpg" alt="avatar" srcset="" />
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
-            />
+        <div>
+            <Card sx={{ textAlign: "center" }}>
+                <CardHeader
+                    avatar={
+                        <Avatar sx={{ bgcolor: red[500], }} aria-label="recipe">
+                            <img src="https://i.ibb.co/jrLSyhJ/pic.jpg" alt="avatar" srcset="" />
+                        </Avatar>
+                    }
+                    action={
+                        <IconButton aria-label="settings">
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    title="Shrimp and Chorizo Paella"
+                    subheader="September 14, 2016"
+                />
 
-            <CardMedia
-                component="img"
-                height="194"
-                image={url}
-                alt="Paella dish"
-            />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    {description}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image={url}
+                    alt="Paella dish"
+                />
                 <CardContent>
-                    <Typography paragraph><b>Price: {price}$ </b></Typography>
-
-                    <Typography paragraph>
+                    <Typography variant="body2" color="text.secondary">
                         {description}
                     </Typography>
-                    <Typography paragraph>
-                        As consumers, we rely heavily on service providers to meet our needs and expectations. Service providers are entities or individuals that provide services to customers or clients, such as internet service providers, healthcare providers, or transportation companies. In this blog, we will discuss the importance of service providers and what makes a good service provider.
-                    </Typography>
-                    <Typography>
-                        Set aside off of the heat to let rest for 10 minutes, and then serve.
-                    </Typography>
                 </CardContent>
-            </Collapse>
-        </Card>
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography paragraph><b>Price: {price}$ </b></Typography>
+
+                        <Typography paragraph>
+                            {description}
+                        </Typography>
+                        <Typography paragraph>
+                            As consumers, we rely heavily on service providers to meet our needs and expectations. Service providers are entities or individuals that provide services to customers or clients, such as internet service providers, healthcare providers, or transportation companies. In this blog, we will discuss the importance of service providers and what makes a good service provider.
+                        </Typography>
+                        <Typography>
+                            Set aside off of the heat to let rest for 10 minutes, and then serve.
+                        </Typography>
+                    </CardContent>
+                </Collapse>
+            </Card>
+
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    label="Name"
+                    value={namee}
+                    onChange={(event) => setNamee(event.target.value)}
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
+                <TextField
+                    label="Email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
+                <TextField
+                    label="Password"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                />
+                <Button type="submit" variant="contained" color="primary">
+                    Submit
+                </Button>
+            </form>
+        </div>
     );
 }

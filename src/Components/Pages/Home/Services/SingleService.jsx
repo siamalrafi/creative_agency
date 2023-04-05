@@ -8,7 +8,6 @@ import Link from '@mui/material/Link';
 const Service = ({ Services }) => {
 
    const { name, description, price, status, categories, url } = Services;
-   console.log(Services);
 
    return (
       <Link  href={categories} underline="hover">
