@@ -13,7 +13,7 @@ const Services = () => {
             "description": "Welcome to our web development services! We are a team of skilled and experienced web developers dedicated to delivering top-notch solutions for all your online needs. Our services encompass a wide range of web development solutions tailored to suit your unique requirements.",
             "price": 500,
             "status": "available",
-            "categories": "Website Design & Development",
+            "categories": "WebsiteDesignDevelopment",
             "url": "https://i.ibb.co/HNhykGp/iphone-1.png"
         },
         {
@@ -21,7 +21,7 @@ const Services = () => {
             "description": "Web and mobile design are two interconnected areas of design that focus on creating visually appealing and user-friendly digital experiences. Web design involves designing websites that are accessible through web browsers, while mobile design involves creating interfaces for smartphones and tablets.",
             "price": 500,
             "status": "available",
-            "categories": "Web & Mobile design",
+            "categories": "WebMobiledesign",
             "url": "https://i.ibb.co/r0gHkvM/color-palette-1.png"
         },
         {
@@ -29,7 +29,7 @@ const Services = () => {
             "description": "Web and mobile design are two interconnected areas of design that focus on creating visually appealing and user-friendly digital experiences. Web design involves designing websites that are accessible through web browsers, while mobile design involves creating interfaces for smartphones and tablets.",
             "price": 500,
             "status": "available",
-            "categories": "UX/UI Design",
+            "categories": "UX/UIDesign",
             "url": "https://i.ibb.co/CvQwzKC/coding-1.png"
         },
         {
@@ -37,7 +37,7 @@ const Services = () => {
             "description": "Digital marketing is the practice of promoting products, services, or brands through digital channels such as search engines, social media, email, and mobile apps. It involves using various digital technologies and tactics to reach and engage with a target audience and drive desired actions such as sales, lead generation, or brand awareness.",
             "price": 500,
             "status": "available",
-            "categories": "Digital Marketing",
+            "categories": "DigitalMarketing",
             "url": "https://i.ibb.co/hfXvSXv/digitalmarketing.png"
         },
         {
@@ -45,7 +45,7 @@ const Services = () => {
             "description": "Branding and design are two closely related fields that focus on creating a distinctive identity for businesses or organizations. As a service provider, branding and design companies work with clients to develop a unique brand image and visual identity that reflects their values, mission, and target audience.",
             "price": 500,
             "status": "available",
-            "categories": "Branding & Design",
+            "categories": "BrandingDesign",
             "url": "https://i.ibb.co/Xbb14pz/Branding-Design.jpg"
         },
         {
@@ -53,7 +53,7 @@ const Services = () => {
             "description": "Content creation is the process of producing valuable and relevant information that engages and informs a specific target audience. The content can take many forms, such as articles, videos, social media posts, infographics, podcasts, and more. The goal of content creation is to attract and retain an audience by delivering content that is informative, entertaining, or both. The process typically involves researching, planning, creating, and distributing content across various channels to reach the intended audience.",
             "price": 500,
             "status": "available",
-            "categories": "Content Creation",
+            "categories": "ContentCreation",
             "url": "https://i.ibb.co/DQPkgYq/Content-Creation.jpg"
         }
     ]
