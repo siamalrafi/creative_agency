@@ -46,6 +46,9 @@ export default function SignIn() {
           email: data.email,
         };
         console.log(currentUser);
+        toast.success(`${user.displayName}, successfully login.`);
+        navigate(from, { replace: true });
+        navigate("/")
 
         // fetch('https://my-mirraw-server.vercel.app/jwt', {
         //   method: 'POST',

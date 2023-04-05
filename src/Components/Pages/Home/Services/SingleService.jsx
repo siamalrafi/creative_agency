@@ -4,7 +4,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-const Service = ({ image }) => {
+const Service = ({ Services }) => {
+
+   const { name, description, price, status, categories, url } = Services;
+   console.log(Services);
+
    return (
       <Card
          sx={{
@@ -20,7 +24,7 @@ const Service = ({ image }) => {
          <CardMedia
             component='img'
             height='140'
-            image={image}
+            image={url}
             alt='green iguana'
             sx={{
                width: 'auto',
