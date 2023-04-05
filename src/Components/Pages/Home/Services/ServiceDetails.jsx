@@ -50,7 +50,6 @@ export default function ServiceDetails() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        console.log(`Name: ${name},${price},   ${serviceName}`);
         setNamee('');
         SetServiceName('');
         SetPricee('');
@@ -60,7 +59,6 @@ export default function ServiceDetails() {
             serviceName: name,
             price: price,
         };
-
         console.log(buyInfo)
 
 
@@ -149,7 +147,6 @@ export default function ServiceDetails() {
                     margin="normal"
                     fullWidth
                 />
-
 
                 <TextField
                     label="Price"
