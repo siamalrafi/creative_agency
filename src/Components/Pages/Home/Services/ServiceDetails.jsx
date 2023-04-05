@@ -17,6 +17,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../Contexts/AuthProvider';
 
 
 const ExpandMore = styled((props) => {
@@ -31,21 +33,11 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function ServiceDetails() {
-    const [expanded, setExpanded] = React.useState(false);
+    const { user, } = useContext(AuthContext);
+    const [expanded, setExpanded] = useState(false);
     const [namee, setNamee] = useState('');
-    const [email, setEmail] = useState('');
     const [serviceName, SetServiceName] = useState('');
     const [pricee, SetPricee] = useState('');
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Name: ${name},${price}, Email: ${email}, ${serviceName}`);
-        setNamee('');
-        setEmail('');
-        SetServiceName('');
-        SetPricee('');
-    };
-
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -54,6 +46,27 @@ export default function ServiceDetails() {
     const data = datas.data[0];
 
     const { name, description, price, status, url } = data;
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        console.log(`Name: ${name},${price},   ${serviceName}`);
+        setNamee('');
+        SetServiceName('');
+        SetPricee('');
+        const buyInfo = {
+            name: user?.displayName,
+            email: user?.email,
+            serviceName: name,
+            price: price,
+        };
+
+        console.log(buyInfo)
+
+
+    };
+
+
 
 
     return (
@@ -122,6 +135,7 @@ export default function ServiceDetails() {
                 <TextField
                     label="Name"
                     value={namee}
+                    value={user?.displayName}
                     onChange={(event) => setNamee(event.target.value)}
                     variant="outlined"
                     margin="normal"
@@ -129,24 +143,30 @@ export default function ServiceDetails() {
                 />
                 <TextField
                     label="Email"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                    value={user?.email}
+                    onChange={(event) => setNamee(event.target.value)}
                     variant="outlined"
                     margin="normal"
                     fullWidth
                 />
+
+
                 <TextField
-                    label="Service Name"
+                    label="Price"
                     value={serviceName}
+                    value={name}
+                    // I don't know what to do with price
                     onChange={(event) => SetServiceName(event.target.value)}
                     variant="outlined"
                     margin="normal"
                     fullWidth
                 />
+
                 <TextField
                     label="Price"
                     value={pricee}
                     value={price}
+                    // I don't know what to do with price
                     onChange={(event) => SetServiceName(event.target.value)}
                     variant="outlined"
                     margin="normal"
