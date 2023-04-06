@@ -19,6 +19,8 @@ import { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { useContext } from 'react';
 import { AuthContext } from '../../../../Contexts/AuthProvider';
+import { toast } from 'react-hot-toast';
+import { Link } from '@mui/material';
 
 
 const ExpandMore = styled((props) => {
@@ -42,6 +44,7 @@ export default function ServiceDetails() {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
     const datas = useLoaderData();
     const data = datas.data[0];
 
@@ -53,14 +56,26 @@ export default function ServiceDetails() {
         setNamee('');
         SetServiceName('');
         SetPricee('');
-        const buyInfo = {
+        const bookingInfo = {
             name: user?.displayName,
             email: user?.email,
             serviceName: name,
             price: price,
         };
-        console.log(buyInfo)
 
+
+        fetch('http://localhost:5000/api/v1/bookings/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success("Service successfully booked.")
+                console.log(data);
+            })
 
     };
 
@@ -169,10 +184,24 @@ export default function ServiceDetails() {
                     margin="normal"
                     fullWidth
                 />
-                <Button type="submit" variant="contained" color="primary">
-                    Submit
-                </Button>
+
+                {
+                    user ?
+                        <>
+                            <Button type="submit" variant="contained" color="primary">
+                                Submit
+                            </Button>
+                        </>
+                        :
+                        <>
+                            <Link href='/login' >
+                                <Button variant="contained" color="primary">
+                                    Login
+                                </Button>
+                            </Link>
+                        </>
+                }
             </form>
-        </div>
+        </div >
     );
 }
