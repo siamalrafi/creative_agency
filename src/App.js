@@ -10,6 +10,9 @@ import Contact from './Components/Pages/Contact/Contact';
 import Services from './Components/Pages/Home/Services/Services';
 import About from "./Components/Pages/About/About";
 import ServiceDetails from "./Components/Pages/Home/Services/ServiceDetails";
+import Dashboard from './Components/Pages/Dashboard/Dashboard';
+
+
 
 const router = createBrowserRouter([
   {
@@ -49,6 +52,10 @@ const router = createBrowserRouter([
           );
         },
       },
+      {
+        path:"/Dashboard",
+        element:<Dashboard/>
+      }
     ],
   },
 ]);

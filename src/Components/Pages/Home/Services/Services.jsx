@@ -1,9 +1,10 @@
 import { Grid } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import ServieTitle from "./serviceTitlte";
 import Service from './SingleService';
 import OurWorks from "../OurWorks/OurWorks";
 import { useQuery } from '@tanstack/react-query';
+import { AuthContext } from '../../../../Contexts/AuthProvider';
 
 
 
@@ -62,6 +63,9 @@ const Services = () => {
     // you should fetch data from server 
     // http://localhost:5000/api/v1/services
 
+    const {user} = useContext(AuthContext);
+    console.log(user);
+    
 
     const { data: OurServices = [], refetch, isLoading } = useQuery({
         queryKey: ['OurServices'],
