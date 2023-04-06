@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Margin } from '@mui/icons-material';
 
 const UserDashboard = ({ user }) => {
 
@@ -19,17 +20,14 @@ const UserDashboard = ({ user }) => {
             return data.data
         }
     });
-    console.log(allbooking);
-
-
-
+    console.log(allbooking); 
     function createData(name, calories, fat, carbs, protein) {
         return { name, calories, fat, carbs, protein };
     }
 
     return (
         <div>
-            <Typography sx={{ textAlign: "center", fontSize: "40px", mt: "10px" }} variant="body2" color="text.secondary">
+            <Typography sx={{ textAlign: "center", fontSize: "40px", mt: "10px", marginBottom: "15px" }} variant="body2" color="text.secondary">
                 <b> Welcome to Dashboard.</b>
             </Typography>
 
@@ -39,7 +37,7 @@ const UserDashboard = ({ user }) => {
                 <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
                     <TableHead>
                         <TableRow sx={{ bgcolor: "gray", marginTop: "10px", color: "white", padding: "40px", fontSize: "20px" }}>
-                            <TableCell>Name</TableCell>
+                            <TableCell >Name</TableCell>
                             <TableCell align="right">Emai</TableCell>
                             <TableCell align="right">Service Name</TableCell>
                             <TableCell align="right">Price</TableCell>
