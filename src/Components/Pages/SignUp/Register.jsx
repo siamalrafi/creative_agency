@@ -42,15 +42,35 @@ export default function SignUp() {
 
         updateUser(`${data.get('firstName')} ${data.get('lastName')}`, data.userType)
           .then(() => {
+
             const userInformation = {
               name: user?.displayName,
               email: user?.email,
-              userType: data?.userType
+              role: "user"
             };
+
+            fetch('http://localhost:5000/api/v1/users', {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(userInformation)
+            })
+              .then(res => res.json())
+              .then(data => {
+                localStorage.setItem('accessToken', data.token);
+                navigate('/');
+              })
+
             toast.success(`${user.displayName}, Successfully Registered.}`)
           })
           .catch(err => console.log(err));
       })
+
+
+
+
+
       .catch(error => {
         console.log(error)
         setSignUPError(error.message);
@@ -74,7 +94,6 @@ export default function SignUp() {
         const userInformation = {
           name: user?.displayName,
           email: user?.email,
-          userType: 'Buyer'
         };
       })
       .then(error => {

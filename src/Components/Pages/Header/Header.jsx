@@ -19,7 +19,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const drawerWidth = 240;
-const navItems = ["Services", 'Contact', "Login", "Register"];
+const navItems = ["Services", 'Contact', "Dashboard", "Login", "Register"];
 
 export default function Header(props) {
     const { window } = props;
@@ -125,7 +125,7 @@ export default function Header(props) {
                             {
                                 user?.email ?
                                     <>
-                                        <Button href="Register"
+                                        <Button href="Dashboard"
                                             sx={{
                                                 bgcolor: 'primary.green',
                                             }}

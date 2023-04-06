@@ -29,6 +29,14 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
+        path: "/Register",
+        element: <Register />,
+      },
+      {
+        path: "/Login",
+        element: <SignIn />,
+      },
+      {
         path: "/Services",
         element: <Services />,
       },
@@ -40,14 +48,6 @@ const router = createBrowserRouter([
             `http://localhost:5000/api/v1/services/${params.Category}`
           );
         },
-      },
-      {
-        path: "/Register",
-        element: <Register />,
-      },
-      {
-        path: "/Login",
-        element: <SignIn />,
       },
     ],
   },
