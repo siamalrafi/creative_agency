@@ -6,7 +6,7 @@ This is the creative agency website that provide various service for digital wor
 Live Website Link : https://mirraw-ebac6.web.app/
 
 
-### Introduction : This is a simple e-commerce website . There are several types of second hand products available. You can sell and buy any products if you want to purchase. There are many different Seller who are want to sell there products in this website.And if you want to sell your products in this website you can. Many advanced options are available for your users. Some interesting options are shown below
+### Introduction : This website provides some reasonable and important services that are very valuable. Any kind of digital website can help from this agency that helps them to grow more and lead generation. Some interesting options are shown below
 
 
 * There are an advertisement option for your seller. That's very simple to use and totally free.
