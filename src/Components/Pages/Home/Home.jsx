@@ -5,6 +5,8 @@ import Trueted from "./Trueted/Trueted";
 import Faq from "./FAQ/Faq";
 import Contact from '../Contact/Contact';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import RecipeReviewCard from './Testimonial/Testimonial';
+import Testimonial from './Testimonial/Testimonial';
 
 const Home = () => {
     const { name, email } = useContext(AuthContext);
@@ -18,6 +20,7 @@ const Home = () => {
             <Trueted />
             <Services />
             <Faq />
+            <Testimonial/>
             <Contact />
         </div>
     );
