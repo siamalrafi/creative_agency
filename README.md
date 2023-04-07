@@ -1,41 +1,16 @@
-# Project Name
+# Creative Agency
 
-A brief description of your project.
+This is the creative agency website that provide various service for digital world. They have some interesting service like Web development, App development, Digital Marketing, UI/UX design etc.
 
-## Table of Contents
 
-- [Project Description](#project-description)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Credits](#credits)
-- [License](#license)
+Live Website Link : https://mirraw-ebac6.web.app/
 
-## Project Description
 
-In this section, provide a more detailed description of your project. You can talk about what inspired you to create the project, what problem it solves, what technologies you used, and any other important details that users should know.
+### Introduction : This is a simple e-commerce website . There are several types of second hand products available. You can sell and buy any products if you want to purchase. There are many different Seller who are want to sell there products in this website.And if you want to sell your products in this website you can. Many advanced options are available for your users. Some interesting options are shown below
 
-## Features
 
-List the features of your project. You can use bullet points or a table to make it easier to read.
-
-## Installation
-
-Explain how to install your project. You can include instructions for cloning the repository, installing dependencies, and any other steps that users need to take before they can use your project.
-
-## Usage
-
-Provide instructions on how to use your project. You can include examples or screenshots to make it easier for users to understand.
-
-## Contributing
-
-Explain how users can contribute to your project. You can talk about submitting bug reports, suggesting new features, or contributing code.
-
-## Credits
-
-Give credit to anyone who contributed to your project or provided resources that you used. You can also list any external libraries or tools that you used.
-
-## License
-
-Include information about the license for your project. You can use a standard license like the MIT license, or you can create your own license.
+* There are an advertisement option for your seller. That's very simple to use and totally free.
+* As a user you can buy any products. you have a dashboard. Here you can see your all booking products information. If you want to cancel your booking or report the seller to admin, that's are available here.
+* A seller can add their products very easily. Click on dashboard routes and click add products button . Then give some relevant information.
+* A seller can delete their products bu one click on delete products.
+* Also an admin routes are available here. Admin are the boss of this website. Admin can add, delete Seller, delete products, delete buyer and cancel booking requests.
