@@ -64,7 +64,7 @@ export default function ServiceDetails() {
         };
 
 
-        fetch('http://localhost:5000/api/v1/bookings/', {
+        fetch('https://creative-agency-server-kappa.vercel.app/api/v1/bookings/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

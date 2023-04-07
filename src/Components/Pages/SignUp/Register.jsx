@@ -49,7 +49,7 @@ export default function SignUp() {
               role: "user"
             };
 
-            fetch('http://localhost:5000/api/v1/users', {
+            fetch('https://creative-agency-server-kappa.vercel.app/api/v1/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'

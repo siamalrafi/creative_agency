@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         element: <ServiceDetails />,
         loader: ({ params }) => {
           return fetch(
-            `http://localhost:5000/api/v1/services/${params.Category}`
+            `https://creative-agency-server-kappa.vercel.app/api/v1/services/${params.Category}`
           );
         },
       },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -15,12 +15,12 @@ const UserDashboard = ({ user }) => {
     const { data: allbooking = [], isLoading, refetch } = useQuery({
         queryKey: ['allbooking'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/api/v1/bookings/das/${user?.email}`)
+            const res = await fetch(`https://creative-agency-server-kappa.vercel.app/api/v1/bookings/das/${user?.email}`)
             const data = await res.json();
             return data.data
         }
     });
-    console.log(allbooking); 
+    console.log(allbooking);
     function createData(name, calories, fat, carbs, protein) {
         return { name, calories, fat, carbs, protein };
     }
@@ -54,7 +54,11 @@ const UserDashboard = ({ user }) => {
                                     <TableCell align="right">{booking?.email}</TableCell>
                                     <TableCell align="right">{booking?.serviceName}</TableCell>
                                     <TableCell align="right">{booking?.price}</TableCell>
-                                    <TableCell align="right">{"Pay"}</TableCell>
+                                    <TableCell align="right">
+                                        <Button variant="outlined">
+                                            Pay</Button>
+                                    </TableCell>
+
                                 </TableRow>
                             )
                         }

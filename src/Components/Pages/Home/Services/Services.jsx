@@ -61,7 +61,7 @@ const Services = () => {
     // ];
 
     // you should fetch data from server 
-    // http://localhost:5000/api/v1/services
+    // https://creative-agency-server-kappa.vercel.app/api/v1/services
 
     const {user} = useContext(AuthContext);
     console.log(user);
@@ -70,7 +70,7 @@ const Services = () => {
     const { data: OurServices = [], refetch, isLoading } = useQuery({
         queryKey: ['OurServices'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/api/v1/services`)
+            const res = await fetch(`https://creative-agency-server-kappa.vercel.app/api/v1/services`)
             const data = await res.json();
             return data
         }
