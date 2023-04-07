@@ -30,7 +30,7 @@ Live Website Link : https://creativeagencyio.netlify.app/
 **Server:** Node.js, Express.js and Mongoose,
 
 
-* Website live 🔗 Links https://docservice-1932a.web.app/
+* Website live 🔗 Links https://creativeagency-1e265.web.app/
 * Website live 🔗 Links https://creativeagencyio.netlify.app/
 
 * Website Server 🔗 Links https://creative-agency-server-kappa.vercel.app/
@@ -65,7 +65,7 @@ This project was very interesting for me because in this project I can implement
 Hello! I'm Md Siam Al Rafi a passionate web developer. I am learning full stack developer.
 
 ## 🛠 Skills
-Javascript, HTML, CSS, Bootstrap, TailwindCss, React, Firebase, NodeJS, JWT, Express.js and MongoDB.
+Javascript, HTML, CSS, Bootstrap, TailwindCss, React, Firebase, NodeJS, JWT, Express.js, MongoDB and Mongoose.
 
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://siamalrafi.netlify.app/)
